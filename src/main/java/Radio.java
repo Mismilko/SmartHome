@@ -52,17 +52,25 @@ public class Radio {
 
     // увеличение громкости
     public int increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume != 100) {
             currentVolume++;
+        } else {
+            currentStation = 100;
         }
         return currentVolume;
     }
 //уменьшение громкости
 
     public int decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume != 0) {
             currentVolume--;
+        }else {
+            currentStation = 0;
         }
         return currentVolume;
     }
+
+
+
+
 }
