@@ -1,6 +1,19 @@
+package ru.netology.service;
+
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int minSation = 0;
+    private int maxStation;
+    private int numberStation = 20;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+
+    public Radio(int numberStation) {
+
+        this.numberStation = numberStation;
+        maxStation = numberStation - 1;
+    }
 
     // установка станции
     public int getCurrentStation() {
@@ -8,10 +21,10 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
+        if (currentStation < minSation) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
@@ -19,32 +32,33 @@ public class Radio {
 
     //переключение станции на следующую
     public void next() {
-        if (currentStation != 9) {
+        if (currentStation != maxStation) {
             currentStation++;
         } else {
-            currentStation = 0;
+            currentStation = minSation;
         }
     }
 
     // переключение станции на предыдущую
     public void prev() {
-        if (currentStation != 0) {
+        if (currentStation != minSation) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
     //установка звука
 
     public int getCurrentVolume() {
+
         return currentVolume = currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
+        if (currentVolume < minVolume) {
             return;
         }
-        if (currentVolume > 100) {
+        if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
@@ -52,7 +66,7 @@ public class Radio {
 
     // увеличение громкости
     public int increaseVolume() {
-        if (currentVolume != 100) {
+        if (currentVolume != maxVolume) {
             currentVolume++;
         } else {
             currentStation = 100;
@@ -62,15 +76,13 @@ public class Radio {
 //уменьшение громкости
 
     public int decreaseVolume() {
-        if (currentVolume != 0) {
+        if (currentVolume != minVolume) {
             currentVolume--;
-        }else {
+        } else {
             currentStation = 0;
         }
         return currentVolume;
     }
-
-
 
 
 }
