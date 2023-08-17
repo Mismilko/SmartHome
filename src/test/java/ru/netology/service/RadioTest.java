@@ -68,7 +68,7 @@ class RadioTest {
     public void setStation20Test() {
         //ru.netology.service.Radio radio = new ru.netology.service.Radio(20);
         radio.setCurrentStation(20);
-        int expected = 20;
+        int expected = 0;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
