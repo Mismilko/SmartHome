@@ -15,6 +15,10 @@ public class Radio {
         maxStation = numberStation - 1;
     }
 
+    public Radio() {
+
+    }
+
     // установка станции
     public int getCurrentStation() {
         return currentStation;
